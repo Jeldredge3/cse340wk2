@@ -1,6 +1,331 @@
+/* CSS Variables */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&family=Roboto&family=Roboto+Slab:wght@800&display=swap');
+
+:root {
+  /* Colors */
+  --primary: #0073e6;
+  --secondary: #005bb5;
+  --accent1: #FF1053;
+  --accent2: #C1CAD6;
+
+  --font-light: #FFFFFF;
+  --font-dark: #000000;
+
+  --background: #FFFFFF;
+  --shadow: #0303038e;
+  --italicized: #888888;
+  
+  /* Effects */
+  --light-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+  --heavy-shadow: 4px 4px 12px rgba(0, 0, 0, 0.4);
+  --semi-transparent: rgba(255, 255, 255, 0.9);
+  
+  /* Fonts */
+  --heading-font: 'Roboto Slab', georgia, serif;
+  --sub-font: 'Oswald', tahoma, sans-serif;
+  --paragraph-font: 'Roboto', tahoma, sans-serif;
+}
+
 /******* Change Box Model ***************/
 *,
 *:before,
 *:after {
   box-sizing: border-box;
+}
+
+/* General */
+h1, h2, h3 {
+  font-family: var(--heading-font);
+}
+
+
+body {
+  font-family: var(--paragraph-font);
+  background-color: var(--accent2);
+  color: #000000;
+  max-width: 1080px;
+  margin: 20px auto;
+  border: 6px solid var(--primary);;
+  border-radius: 8px;
+  padding: 0;
+  background-image: url('/images/site/checkerboard.jpg');
+    background-size: 320px 330px; 
+    background-position: top left;
+    background-repeat: repeat; 
+  box-shadow: var(--light-shadow);
+}
+
+#wrapper {
+background-color: var(--background);
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between; /* horizontal */
+  align-items: center; /* vertical */
+  width: 100%;
+  height: 120px;
+  padding: 12px;
+}
+
+header a {
+  text-decoration: none;
+  color: var(--font-dark);
+}
+
+.siteName {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 42px;
+  font-weight: bold;
+  margin: 0;
+  padding: 0px 12px;;
+}
+
+.profile-link {
+  font-size: 18px;
+  text-decoration: none;
+}
+
+/* Navigation */
+nav {
+  display: flex;
+  justify-content: space-between; 
+}
+
+nav ul {
+  display: flex;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+nav ul li {
+  flex: 1; /* Equal spacing */
+  text-align: center; 
+}
+
+nav ul li a {
+  display: block; 
+  text-decoration: none; 
+  font-size: 18px; 
+  padding: 15px;
+  background-color: var(--primary);
+  color: var(--font-light);
+}
+
+nav ul li a:hover {
+  background-color: var(--secondary);
+}
+
+/* Main */
+main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(auto-fit);
+}
+
+.upgrades h2,
+.reviews h2 {
+  text-align: center;
+}
+
+/* Hero */
+.hero {
+  grid-column: 1/3;
+  position: relative;
+  text-align: left;
+  margin: 0px 20px;
+}
+
+.hero img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.hero h1 {
+  font-size: 30px;
+}
+
+/* Call to Action */
+
+.call-to-action {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  top: 30%; 
+  left: 60px; 
+  border: 2px solid var(--accent1);
+  padding: 30px;
+  background-color: var(--semi-transparent);
+  box-shadow: var(--light-shadow);
+}
+
+.call-to-action:hover {
+  transform: scale(1.05);
+  box-shadow: var(--heavy-shadow);
+}
+
+.call-to-action h2 {
+  margin: 0 0 0.5em 0;
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--primary);
+}
+
+.call-to-action p {
+  margin: 0.2em 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.call-to-action a {
+  padding: 16px 24px;
+  margin: 10px 0px 0px 0px;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: var(--primary);
+  color: var(--font-light);
+}
+
+.call-to-action a:hover {
+  background-color: var(--secondary);
+  color: var(--font-light);;
+}
+
+/* Cards */
+.upgrades {
+  grid-column: 1/2;
+  padding: 20px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  text-decoration: none;
+  font-size: 20px;
+  background-color: var(--primary);
+  box-shadow: var(--light-shadow);
+  transition: 0.25s ease-in-out;
+}
+
+.card img {
+  width: auto;
+  height: auto;
+  padding: 10px;
+}
+
+.card p {
+  width: 100%;
+  margin: 0;
+  padding: 20px;
+  background-color: var(--background);
+  color: var(--secondary);
+  font-weight: bold; 
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: var(--heavy-shadow);
+}
+
+/* Reviews */
+.reviews {
+  grid-column: 2/3;
+  max-width: 800px;
+  padding: 20px;
+}
+
+.reviews ul {
+  list-style: none;
+  padding: 0;
+}
+
+.reviews li {
+  padding: 10px;
+  border-bottom: 2px solid var(--accent1);
+  font-size: 18px;
+}
+
+/* Footer */
+footer {
+  position: relative;
+  width: 100%;
+  bottom: 0;
+  text-align: center;
+  padding: 20px;
+  background-color: var(--primary);;
+  color: var(--font-light);
+}
+
+/* Responsive Design */
+
+
+@media screen and (max-width: 720px) {
+  body {
+    max-width: none;
+    margin: 20px 30px;
+    padding: 0;
+  };
+
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  main {
+    display: block;
+  }
+
+  .hero h1 {
+    font-size: 20px;
+  }
+
+  .call-to-action {
+    left: 0px;
+    padding: 20px;
+  }
+
+  .call-to-action h2 {
+    margin: 0 0 0.5em 0;
+    font-size: 16px;
+  }
+  
+  .call-to-action p {
+    margin: 0.2em 0;
+    font-size: 12px;
+  }
+  
+  .call-to-action a {
+    padding: 16px 24px;
+    margin: 8px 0px 0px 0px;
+    font-size: 16px;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    width: 80%;
+  }
 }
