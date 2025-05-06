@@ -12,8 +12,6 @@
   --font-dark: #000000;
 
   --background: #FFFFFF;
-  --shadow: #0303038e;
-  --italicized: #888888;
   
   /* Effects */
   --light-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
@@ -93,10 +91,14 @@ header a {
 nav {
   display: flex;
   justify-content: space-between; 
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 nav ul {
   display: flex;
+  flex-wrap: wrap;
   width: 100%;
   padding: 0;
   margin: 0;
@@ -112,7 +114,7 @@ nav ul li a {
   display: block; 
   text-decoration: none; 
   font-size: 18px; 
-  padding: 15px;
+  padding: 16px;
   background-color: var(--primary);
   color: var(--font-light);
 }
@@ -125,7 +127,7 @@ nav ul li a:hover {
 main {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: repeat(auto-fit);
+  grid-template-rows: repeat(auto-fit, minmax(200px, 1fr));
 }
 
 .upgrades h2,
@@ -278,14 +280,29 @@ footer {
 }
 
 /* Responsive Design */
-
-
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 1260px) {
   body {
     max-width: none;
     margin: 20px 30px;
     padding: 0;
-  };
+  }
+
+  nav ul li a {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  body {
+    max-width: none;
+    margin: 20px 20px;
+    padding: 0;
+    background-size: 180px 190px; 
+  }
+
+  nav ul li a {
+    font-size: 14px;
+  }
 
   header {
     flex-direction: column;
@@ -327,5 +344,17 @@ footer {
 
   .card {
     width: 80%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  body {
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+  }
+
+  nav ul li a {
+    font-size: 12px;
   }
 }
